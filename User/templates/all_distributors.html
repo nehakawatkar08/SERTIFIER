@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="GET" style="padding:0px; color:#131515; width:70%; border-radius:30px;">
+    <input type="text"
+           name="q"
+           placeholder="Search by username or email"
+           value="{{ query|default:'' }}"
+            style="width:80%; margin:5px; color:#131515; border-radius:30px;">
+
+    <button type="submit" class="btn" style=" border-radius:30px; padding:10px; width:10%;">Search</button>
+</form>
+
+<br>
+
+<h2>All Distributors</h2>
+
+<table border="1">
+    <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+
+    {% for d in distributors %}
+    <tr>
+        <td>{{ d.username }}</td>
+        <td>{{ d.email }}</td>
+
+        <td>
+            {% if d.is_active %}
+                ✔ Active
+            {% else %}
+                ❌ Inactive
+            {% endif %}
+        </td>
+
+        <td>
+            <a href="{% url 'distributor_profile' d.id %}" class="btn">
+                View Profile
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

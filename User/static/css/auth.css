@@ -1,0 +1,159 @@
+:root {
+    --primary: #131515;
+    --secondary: #246a73;
+    --accent: #368f8b;
+    --muted: #f3dfc1;
+    --bg: #ddbea8;
+    --white: #ffffff;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg);
+    color: var(--primary);
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    background: var(--primary);
+    color: var(--white);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h2 {
+    margin: 0;
+}
+
+.navbar a {
+    color: var(--muted);
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+.navbar a:hover {
+    color: var(--accent);
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.main-container {
+    padding: 40px;
+}
+
+/* =========================
+   HERO SECTION (HOME)
+========================= */
+
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 40px;
+    margin:20px;
+    background : url('../images/contract.png') no-repeat right center;
+}
+
+.hero-text {
+    max-width: 500px;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 18px;
+    color: var(--primary);
+    margin-bottom: 25px;
+}
+
+.hero-btn {
+    background: var(--secondary);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.hero-btn:hover {
+    background: #22223b;
+}
+
+/* =========================
+   HERO IMAGE
+========================= */
+
+/* =========================
+   FEATURES
+========================= */
+
+.features {
+    margin-top: 60px;
+    display: flex;
+    gap: 20px;
+}
+
+.feature-card {
+    flex: 1;
+    background: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid var(--muted);
+}
+
+/* =========================
+   LOGIN CARD
+========================= */
+
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+.login-card {
+    background: white;
+    padding: 30px;
+    width: 350px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.login-card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--primary);
+    border-radius: 6px;
+}
+
+.login-card button {
+    width: 100%;
+    padding: 10px;
+    background: var(--secondary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
+.login-card button:hover {
+    background: #22223b;
+}

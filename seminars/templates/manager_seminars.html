@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>My Seminars</h2>
+
+<a href="{% url 'create_seminar' %}" class="btn">+ Create Seminar</a>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Topic</th>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for seminar in seminars %}
+    <tr>
+        <td>{{ seminar.title }}</td>
+        <td>{{ seminar.topic }}</td>
+        <td>{{ seminar.date_time }}</td>
+        <td>{{ seminar.location }}</td>
+        <td>{{ seminar.status }}</td>
+        <td>
+        <a href="{% url 'seminar_registrations' seminar.id %}" class="btn">
+                View Registrations
+        </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

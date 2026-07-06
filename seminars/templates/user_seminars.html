@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Available Seminars</h2>
+
+    <a href="?" class="btn">All</a>
+
+    <a href="?status=upcoming" class="btn">
+    Upcoming
+    </a>
+
+    <a href="?status=completed" class="btn">
+    Completed
+    </a>
+
+<div class="grid">
+
+    {% for seminar in seminars %}
+    <div class="card">
+        <h3>{{ seminar.title }}</h3>
+        <p><strong>Seminar Topic:</strong> {{ seminar.topic }}</p>
+        <p><strong>Date:</strong> {{ seminar.date_time }}</p>
+        <p><strong>Location:</strong> {{ seminar.location }}</p>
+        <p><strong>Status:</strong> {{ seminar.status }}</p>
+        {% if seminar.id in registered_seminars %}
+            <span style="color:green; border:1px solid; border-radius:5px;">Already Registered</span>
+        {% else %}
+            {% if seminar.registration_open %}
+            <a href="{% url 'register_seminar' seminar.id %}" class="btn">
+            Register
+            </a>
+            {% else %}
+            <span style="color:red; border:1px solid; border-radius:5px;">Registration Closed</span>
+            {% endif %}
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

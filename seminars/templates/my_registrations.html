@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>My Registrations</h2>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>Seminar</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>ID Card</th>
+        <th>Certificates</th>
+    </tr>
+
+    {% for reg in registrations %}
+    <tr>
+        <td>{{ reg.seminar.title }}</td>
+        <td>{{ reg.seminar.date_time }}</td>
+
+        <td>
+            {% if reg.attended %}
+                ✔ Attended
+            {% else %}
+                ❌ Not Attended
+            {% endif %}
+        </td>
+
+        <td>
+            {% if reg.id_card %}
+                <a href="{{ reg.id_card.url }}" download>Download</a>
+            {% else %}
+                Not Available
+            {% endif %}
+        </td>
+        <td>
+            {% if reg.attended %}
+
+            <a href="{% url 'generate_certificate' reg.id %}">
+            Download Certificate
+            </a>
+
+            {% else %}
+            Certificate Locked
+
+            {% endif %}
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="4">No registrations found</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

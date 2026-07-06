@@ -1,0 +1,39 @@
+{% extends 'auth_base.html' %}
+
+{% block content %}
+
+<div class="hero-section">
+
+    <div class="hero-text">
+        <h1>Sertifier System</h1>
+        <p>
+            Manage seminars, attendance, and certificates efficiently
+            with a smart centralized system.
+        </p>
+
+        <a href="{% url 'login' %}" class="hero-btn">Get Started</a>
+    </div>
+
+</div>
+
+<!-- FEATURES -->
+<div class="features">
+
+    <div class="feature-card">
+        <h3>Seminar Management</h3>
+        <p>Create and manage seminars easily.</p>
+    </div>
+
+    <div class="feature-card">
+        <h3>Attendance Tracking</h3>
+        <p>Managers can mark attendance efficiently.</p>
+    </div>
+
+    <div class="feature-card">
+        <h3>Certificate Generation</h3>
+        <p>Automatic certificate creation for attendees.</p>
+    </div>
+
+</div>
+
+{% endblock %}

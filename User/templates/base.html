@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+    <title>Sertifier</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+{% if user.is_authenticated %}
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2>Sertifier</h2>
+
+        <a href="{% url 'dashboard' %}">Dashboard</a>
+
+        {% if user.role == 'admin' %}
+            <a href="{% url 'create_manager' %}">Add Managers</a>
+            <a href="{% url 'managers_list' %}">Managers List</a>
+            <a href="{% url 'manager_seminars' %}">My Seminars</a>
+            <a href="{% url 'all_distributors' %}">Distributors</a>
+            <a href="{% url 'profile' %}">Profile</a>
+        {% endif %}
+
+        {% if user.role == 'distributor' %}
+            <a href="{% url 'user_seminars' %}">View Seminars</a>
+            <a href="{% url 'my_registrations' %}">My Registrations</a>
+            <a href="{% url 'profile' %}">Profile</a>
+        {% endif %}
+
+        {% if user.role == 'manager' %}
+            <a href="{% url 'create_user' %}">Add Distributors</a>
+            <a href="{% url 'distributors_list' %}">My Distributors List</a>
+            <a href="{% url 'all_distributors' %}">All Distributors List</a>
+            <a href="{% url 'manager_seminars' %}" >My Seminars</a>
+            <a href="{% url 'create_seminar' %}">Create Seminar</a>
+             <a href="{% url 'profile' %}">Profile</a>
+        {% endif %}
+
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+        {% if messages %}
+  {% for message in messages %}
+    <p>{{ message }}</p>
+  {% endfor %}
+{% endif %}
+
+{% endif %}
+
+<!-- ✅ ONLY ONE BLOCK IN WHOLE FILE -->
+{% block content %}{% endblock %}
+
+{% if user.is_authenticated %}
+    </div>
+</div>
+{% endif %}
+
+</body>
+</html>

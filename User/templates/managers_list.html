@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Managers List</h2>
+
+<table border="1">
+    <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+
+    {% for m in managers %}
+    <tr>
+        <td>{{ m.username }}</td>
+        <td>{{ m.email }}</td>
+
+        <td>
+            {% if m.is_active %}
+                ✔ Active
+            {% else %}
+                ❌ Inactive
+            {% endif %}
+        </td>
+
+        <td>
+            <a href="{% url 'toggle_user_status' m.id %}">
+                {% if m.is_active %}
+                    Deactivate
+                {% else %}
+                    Activate
+                {% endif %}
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

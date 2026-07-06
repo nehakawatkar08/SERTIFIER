@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Admin Dashboard</h1>
+
+<div class="topbar">
+            <h3>Welcome, {{ user.get_full_name }}</h3>
+        </div>
+
+<div class="grid">
+    <div class="card">
+        <h3>Create Manager</h3>
+        <a href="{% url 'create_manager' %}" class="btn">Add</a>
+    </div>
+
+    <div class="card">
+        <h3>System Overview</h3>
+        <p>Manage entire organization structure.</p>
+    </div>
+</div>
+{% endblock %}
